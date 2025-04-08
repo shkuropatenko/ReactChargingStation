@@ -2,7 +2,8 @@ import { ReactNode } from "react";
 
 // SidebarMenuButtons Interface
 export interface MenuItem {
-  icon: ReactNode;
+  icon: React.ReactNode;
   label: string;
+  route?: string;
   onClick?: () => void;
 }
