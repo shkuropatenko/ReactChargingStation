@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import TabButton from "../components/TabButton/TabButton";
 import SearchInput from "../components/SearchInput/SearchInput";
+import CustomLineChart from "../components/CustomLineChart/CustomLineChart";
 import FlashOnIcon from "@mui/icons-material/FlashOn";
 import DrawerBar from "../components/DrawerBar/DrawerBar";
 import HistoryIcon from "@mui/icons-material/History";
@@ -92,6 +93,7 @@ const DashboardContent: React.FC = () => {
             <MoreHoriz />
           </button>
         </div>
+        <CustomLineChart />
       </div>
       {/* 
       <div className="mt-8">
