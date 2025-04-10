@@ -2,8 +2,8 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: {
-        chestnut: "var(--color-chestnut)",
+      screens: {
+        "xl-custom": "1468px",
       },
     },
   },

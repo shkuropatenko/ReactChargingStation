@@ -54,7 +54,15 @@ const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
 
 const CustomGraph = () => {
   return (
-    <div className="bg-grey-900 border border-grey-1000 p-6 rounded-2xl shadow-lg">
+    <div className="bg-grey-900 border border-grey-1000 p-6 pt-[102px] rounded-[6px] shadow-lg relative h-[90.3%]">
+      <div className="absolute top-[34px] right-[50px] bg-[#1c1c1e] text-white rounded-xl shadow-lg text-sm">
+        <select
+          id="unsatisfied-demand"
+          className="bg-[#1c1c1e] text-white border border-neutral-700 rounded px-2 py-1 w-[204px] h-[34px]"
+        >
+          <option>Unsatisfied Demand %</option>
+        </select>
+      </div>
       <ResponsiveContainer width="100%" height={310}>
         <LineChart
           data={data}
@@ -66,7 +74,8 @@ const CustomGraph = () => {
             stroke="#aaa"
             tickSize={10}
             tick={({ x, y, payload }) => {
-              const isNow = payload.value === "May"; // Заменить на динамическое значение, если нужно
+              const isNow = payload.value === "May";
+
               return (
                 <g transform={`translate(${x},${y + 10})`}>
                   <text
@@ -103,20 +112,20 @@ const CustomGraph = () => {
           />
           <Tooltip
             content={<CustomTooltip active={false} payload={[]} />}
-            cursor={{ stroke: "#d1fa1e", strokeDasharray: "4 4" }}
+            cursor={{ stroke: "#C8E972", strokeDasharray: "4 4" }}
           />
-          <ReferenceLine x="Jul" stroke="#d1fa1e" strokeDasharray="4 4" />
+          <ReferenceLine x="Jul" strokeDasharray="4 4" />
           <Line
             type="monotone"
             dataKey="value"
-            stroke="#d1fa1e"
+            stroke="#C8E972"
             strokeWidth={2.5}
-            dot={{ stroke: "#d1fa1e", strokeWidth: 2, r: 5, fill: "#0f0f0f" }}
+            dot={{ stroke: "#C8E972", strokeWidth: 2, r: 5, fill: "#0f0f0f" }}
             activeDot={{
               r: 8,
-              stroke: "#d1fa1e",
+              stroke: "#C8E972",
               strokeWidth: 2,
-              fill: "#d1fa1e",
+              fill: "#C8E972",
             }}
           />
         </LineChart>

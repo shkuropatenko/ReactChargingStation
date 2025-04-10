@@ -18,10 +18,10 @@ export const CheckboxGroup = ({
   };
 
   return (
-    <div className="flex gap-4 flex-wrap">
-      {options.map((label) => (
+    <div className="flex gap-4 flex-wrap mb-[32px]">
+      {options.map((label, index) => (
         <div
-          key={label}
+          key={`${label}-${index}`}
           onMouseEnter={
             label === "CO₂ Distribution" ? () => handleHover(label) : undefined
           }

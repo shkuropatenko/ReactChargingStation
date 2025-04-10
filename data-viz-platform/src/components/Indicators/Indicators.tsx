@@ -6,16 +6,17 @@ export interface IndicatorProps {
 }
 const Indicator: React.FC<IndicatorProps> = ({ title, text, cost }) => {
   return (
-    <div className="bg-grey-900 border border-grey-1000 p-6 rounded-2xl shadow-lg h-[100%]">
+    <div className="bg-grey-900 border border-grey-1000 px-7 py-7 rounded-[6px] shadow-lg h-[100%]">
       <div>
-        <strong className="">
+        <strong className="font-medium text-[18px] flex items-center justify-between mb-[8px]">
           <span>{title}</span>
-          <HelpOutlineIcon />
+          <HelpOutlineIcon className="text-[#BBBBBB] !w-[16px] h-![16px]" />
         </strong>
       </div>
-      <p>{text}</p>
-
-      <span className="cost">{cost}</span>
+      <p className="text-[12px] text-[#BBBBBB] mb-[34px]">{text}</p>
+      <span className="cost text-[32px] block text-right font-bold">
+        {cost}
+      </span>
     </div>
   );
 };

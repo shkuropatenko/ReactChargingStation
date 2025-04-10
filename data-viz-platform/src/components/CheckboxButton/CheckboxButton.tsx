@@ -19,16 +19,17 @@ export const CheckboxButton = ({
         className="peer hidden"
       />
       <div
-        className={`px-5 py-2 rounded-full border transition-all text-sm font-medium
+        className={`px-[9px] py-[6px] rounded-full border transition-all text-sm font-medium
         ${
           checked
             ? "border-lime-400 text-lime-300"
             : "border-zinc-600 text-zinc-300 group-hover:border-lime-400 group-hover:bg-white/5 group-hover:text-lime-300"
         }`}
       >
-        {label} <AutoAwesomeIcon />
-        {!checked && <AddIcon />}
-        {checked && <CheckIcon />}
+        {label}{" "}
+        <AutoAwesomeIcon className="!w-[14px] !h-[14px] ml-[22px] mr-[6px]" />
+        {!checked && <AddIcon className="!w-[14px] !h-[14px]" />}
+        {checked && <CheckIcon className="!w-[14px] !h-[14px]" />}
       </div>
 
       {/* hover */}

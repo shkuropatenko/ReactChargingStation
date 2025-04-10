@@ -5,7 +5,7 @@ import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
-    <div className="py-16 px-19">
+    <div className="py-8 px-8 xl:py-16 xl:px-19">
       <div className="border rounded-[10px] border-grey-400 bg-black-100">
         <Router>
           <Routes>
