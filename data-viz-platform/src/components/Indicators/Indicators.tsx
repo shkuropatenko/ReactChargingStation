@@ -15,7 +15,7 @@ const Indicator: React.FC<IndicatorProps> = ({ title, text, cost }) => {
       </div>
       <p>{text}</p>
 
-      <span className="cost">€{cost}</span>
+      <span className="cost">{cost}</span>
     </div>
   );
 };
