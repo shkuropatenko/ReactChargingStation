@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { Key, useState } from "react";
 import {
   Link,
   Route,
@@ -16,6 +16,9 @@ import FileUploadIcon from "@mui/icons-material/FileUpload";
 import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome";
 import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import MoreHoriz from "@mui/icons-material/MoreHoriz";
+import Indicator from "../components/Indicators/Indicators";
+import { indicators } from "../consts/consts";
+import AddIcon from "@mui/icons-material/Add";
 
 const tabItems = [
   { label: "Charging Stations", route: "/dashboard/home" },
@@ -36,7 +39,7 @@ const DashboardContent: React.FC = () => {
 
   return (
     <div>
-      <div className="flex items-center justify-between p-[20px]">
+      <div className="flex items-center justify-between p-[22px]">
         <div className="flex space-x-4">
           {tabItems.map((tab) => (
             <TabButton
@@ -93,7 +96,35 @@ const DashboardContent: React.FC = () => {
             <MoreHoriz />
           </button>
         </div>
-        <CustomLineChart />
+        <div className="grid grid-cols-9 gap-4 p-2">
+          <div className="col-span-5">
+            <h2 className="text-white text-2xl font-semibold mb-4">Graphs</h2>
+            <CustomLineChart />
+          </div>
+          <div className="col-span-4">
+            <div className="flex items-center justify-between">
+              <h2 className="text-white text-2xl font-semibold mb-0">
+                Key Performance Indicators
+              </h2>
+              <button className="cursor-pointer border border-[#414142] p-2 rounded-[6px]">
+                Variables <AddIcon />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-2 gap-4">
+              {indicators.map((item, index: Key | null | undefined) => (
+                <div>
+                  <Indicator
+                    key={index}
+                    title={item.title}
+                    text={item.text}
+                    cost={item.cost}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       </div>
       {/* 
       <div className="mt-8">

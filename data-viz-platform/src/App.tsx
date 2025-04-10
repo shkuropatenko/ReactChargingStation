@@ -5,8 +5,8 @@ import PrivateRoute from "./routes/PrivateRoute";
 
 function App() {
   return (
-    <div className="p-8">
-      <div className="border rounded-[20px] border-[#959595]">
+    <div className="py-16 px-19">
+      <div className="border rounded-[10px] border-grey-400 bg-black-100">
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />

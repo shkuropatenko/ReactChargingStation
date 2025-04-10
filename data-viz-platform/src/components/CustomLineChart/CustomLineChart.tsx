@@ -8,7 +8,6 @@ import {
   Tooltip,
   CartesianGrid,
   ReferenceLine,
-  Label,
 } from "recharts";
 import { Info } from "lucide-react";
 
@@ -22,7 +21,12 @@ const data = [
   { month: "Oct", value: 55000 },
 ];
 
-const CustomTooltip = ({ active, payload, label }) => {
+interface CustomTooltipProps {
+  active: boolean;
+  payload: { value: number }[];
+}
+
+const CustomTooltip: React.FC<CustomTooltipProps> = ({ active, payload }) => {
   if (active && payload && payload.length) {
     const value = payload[0].value;
     const percent = ((value - 20000) / (100000 - 20000)) * 100;
@@ -50,9 +54,8 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 const CustomGraph = () => {
   return (
-    <div className="bg-[#0f0f0f] p-6 rounded-2xl shadow-lg">
-      <h2 className="text-white text-2xl font-semibold mb-4">Graphs</h2>
-      <ResponsiveContainer width="100%" height={300}>
+    <div className="bg-grey-900 border border-grey-1000 p-6 rounded-2xl shadow-lg">
+      <ResponsiveContainer width="100%" height={310}>
         <LineChart
           data={data}
           margin={{ top: 10, right: 30, left: 0, bottom: 40 }}
@@ -99,7 +102,7 @@ const CustomGraph = () => {
             tickFormatter={(value) => `$${value / 1000}K`}
           />
           <Tooltip
-            content={<CustomTooltip />}
+            content={<CustomTooltip active={false} payload={[]} />}
             cursor={{ stroke: "#d1fa1e", strokeDasharray: "4 4" }}
           />
           <ReferenceLine x="Jul" stroke="#d1fa1e" strokeDasharray="4 4" />
